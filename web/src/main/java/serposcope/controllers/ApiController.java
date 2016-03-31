@@ -66,6 +66,7 @@ public class ApiController {
         for (int i = 0; i < groups.size(); i++) {
             if (groups.get(i).getName().equals(group_name)) {
                 group = groups.get(i);
+                break;
             }
         }
         if (group == null) {
