@@ -13,6 +13,7 @@ import ninja.Router;
 import ninja.application.ApplicationRoutes;
 import serposcope.controllers.admin.UsersController;
 import serposcope.controllers.AuthController;
+import serposcope.controllers.ApiController;
 import serposcope.controllers.GroupController;
 import serposcope.controllers.HomeController;
 import serposcope.controllers.UserPreferences;
@@ -31,7 +32,9 @@ public class Routes implements ApplicationRoutes {
 
     @Override
     public void init(Router router) {  
-        
+        // api
+        router.POST().route("/api/search/add").with(ApiController.class, "apiAddSearch");
+
         // authentication
         router.GET().route("/create-admin").with(AuthController.class, "createAdmin");
         router.POST().route("/create-admin").with(AuthController.class, "doCreateAdmin");
